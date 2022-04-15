@@ -9,17 +9,35 @@
 		body {
 			font-family: Avenir, system-ui, sans-serif;
 			font-size: 16px;
-			text-align: center;
+			max-width: 500px;
+			width: 80%;
+			margin: 0 auto;
+		}
+		h2 {
+			margin-top: 3rem;
+		}
+		button {
+			cursor: pointer;
+		}
+		button:active {
+			cursor: grabbing;
 		}
 	</style>
 	<link rel="stylesheet" href="./mui-input.css">
 </head>
 <body>
 
+<h1>Web Tricks</h1>
+
+<h2>CSS only Material UI input bar animation</h2>
 <label>
-	CSS only Material UI input bar animation
-	<input class="muiInput">
+	<input class="muiInput" placeholder="Click me">
 </label>
 
+
+<h2>Play Note</h2>
+<button type="button" onclick="playNote()">Play Note</button>
+
+<script src="play-note.js"></script>
 </body>
 </html>
