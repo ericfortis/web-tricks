@@ -1,6 +1,5 @@
 // https://reeteshghimire.com.np/2020/03/27/play-musical-notes-with-javascript/
 function playNote(frequency = 329.6) {
-	console.log('al');
 	const context = new AudioContext()
 	const oscillatorNode = context.createOscillator()
 	const gainNode = context.createGain()
