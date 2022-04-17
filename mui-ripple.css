@@ -1,0 +1,52 @@
+.ripple {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	border: 0;
+	cursor: pointer;
+	outline: 0;
+	transform: translate(0, 0);
+}
+.ripple::before {
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	padding-top: 50%;
+	padding-bottom: 50%;
+	margin: auto;
+	background: #000;
+	border-radius: 100%;
+	content: "";
+	opacity: 0;
+	pointer-events: none;
+	transform: scale(0, 0);
+	transition: all 1.5s, opacity 180ms;
+}
+.ripple:active::before {
+	opacity: 0.12;
+	transition: 0.5s;
+}
+.ripple:focus:not(:active)::before {
+	animation: anim 1.8s infinite;
+	animation-delay: 10ms; /* Ensures the content is rendered, so the scaling knows the actual size. */
+}
+@keyframes anim {
+	0%,
+	100% {
+		opacity: 0.14;
+		transform: scale(0.6, 0.6);
+		-moz-transform: translateY(-33%) scale(0.6, 0.6); /* stylelint-disable-line */
+	}
+	50% {
+		opacity: 0.1;
+		transform: scale(0.8, 0.8);
+		-moz-transform: translateY(-33%) scale(0.8, 0.8); /* stylelint-disable-line */
+	}
+}
