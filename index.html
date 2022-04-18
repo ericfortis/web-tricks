@@ -13,9 +13,6 @@
 			font-family: Avenir, system-ui, sans-serif;
 			font-size: 16px;
 		}
-		h1, h2 {
-			font-family: Futura, system-ui, sans-serif;
-		}
 		h2 {
 			margin-top: 6rem;
 		}
@@ -28,8 +25,8 @@
 		}
 
 		#InteractiveConnectionTarget {
-			height: 240px;
 			width: 90%;
+			height: 240px;
 			background: #ddd;
 			touch-action: none; /* Prevents scrolling on touch */
 		}
@@ -81,6 +78,9 @@
 
 
 <h2>Draw Interactive Connection</h2>
+<p>
+	This is SVG, but you can use <code>describeCurve</code> for canvas too.
+</p>
 <svg id="InteractiveConnectionTarget">
 	<path d="" id="InteractiveConnection" />
 </svg>
