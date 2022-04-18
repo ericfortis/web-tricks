@@ -2,40 +2,46 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width">
+	<meta content="width=device-width" name="viewport">
 	<title>Web Tricks</title>
 	<style>
 		html,
 		body {
+			width: 80%;
+			max-width: 700px;
+			margin: 0 auto;
 			font-family: Avenir, system-ui, sans-serif;
 			font-size: 16px;
-			max-width: 700px;
-			width: 80%;
-			margin: 0 auto;
 		}
 		h1, h2 {
 			font-family: Futura, system-ui, sans-serif;
 		}
 		h2 {
-			margin-top: 3rem;
+			margin-top: 6rem;
 		}
 		button {
-			cursor: pointer;
 			padding: 8px;
+			cursor: pointer;
 		}
 		button:active {
 			cursor: grabbing;
 		}
+		
+		footer {
+			padding: 20px 0;
+			margin-top: 9rem;
+			color: #999;
+		}
 	</style>
-	<link rel="stylesheet" href="./mui-ripple.css">
-	<link rel="stylesheet" href="./mui-input.css">
+	<link href="./mui-ripple.css" rel="stylesheet">
+	<link href="./mui-input.css" rel="stylesheet">
 </head>
 <body>
 
 <h1>Web Tricks</h1>
 
 <h2>CSS-only Material UI ripple</h2>
-<button class="ripple" type="button" autofocus>Focus</button>
+<button autofocus class="ripple" type="button">Focus</button>
 
 
 <h2>CSS-only Material UI input bar animation</h2>
@@ -45,7 +51,7 @@
 
 
 <h2>Play Note</h2>
-<button type="button" onclick="playNote()">Play Note</button>
+<button onclick="playNote()" type="button">Play Note</button>
 
 
 <h2>Email Obfuscator</h2>
@@ -61,6 +67,13 @@
 <h2>Preventing widow words</h2>
 <a href="https://blog.uidrafter.com/how-to-fix-html-widow-words">How to fix Widow Words?</a>
 
+
+
+<footer>
+	&copy; 2022 Eric Fortis
+	<br>
+	<a href="https://twitter.com/efortis">@efortis</a>
+</footer>
 
 <script src="play-note.js"></script>
 <script src="email-obfuscator.js"></script>
