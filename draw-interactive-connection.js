@@ -9,35 +9,33 @@ function describeCurve(x1, y1, x2, y2) {
 
 
 window.addEventListener('load', function () {
-	const target = document.getElementById('InteractiveConnectionTarget')
-	const ic = document.getElementById('InteractiveConnection')
+	const board = document.getElementById('InteractiveConnectionTarget')
+	const conn = document.getElementById('InteractiveConnection')
 
 	let xStart = 0
 	let yStart = 0
 
-	function onMove(event) {
-		event.preventDefault()
-		
-		if (event.offsetX > xStart)
-			ic.setAttribute('d', describeCurve(xStart, yStart, event.offsetX, event.offsetY))
+	function onMove({ offsetX, offsetY }) {
+		if (offsetX > xStart)
+			conn.setAttribute('d', describeCurve(xStart, yStart, offsetX, offsetY))
 		else
-			ic.setAttribute('d', describeCurve(event.offsetX, event.offsetY, xStart, yStart))
+			conn.setAttribute('d', describeCurve(offsetX, offsetY, xStart, yStart))
 	}
 
-	target.addEventListener('pointerdown', function (event) {
+	board.addEventListener('pointerdown', function (event) {
 		event.preventDefault()
-		target.setPointerCapture(event.pointerId)
+		board.setPointerCapture(event.pointerId)
 		xStart = event.offsetX
 		yStart = event.offsetY
-		target.addEventListener('pointermove', onMove)
+		board.addEventListener('pointermove', onMove)
 	})
 
-	target.onpointerup = function (event) {
-		target.removeEventListener('pointermove', onMove)
+	board.onpointerup = function () {
+		board.removeEventListener('pointermove', onMove)
 	}
 
-	target.onpointercancel = function (event) {
-		target.releasePointerCapture(event.pointerId)
-		target.removeEventListener('pointermove', onMove)
+	board.onpointercancel = function (event) {
+		board.releasePointerCapture(event.pointerId)
+		board.removeEventListener('pointermove', onMove)
 	}
 })
