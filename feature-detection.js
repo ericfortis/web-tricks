@@ -22,16 +22,11 @@ const isCommantrol = isMac
 	: event => event.ctrlKey
 
 
-const KC = {
-	meta: 91,
-	control: 17
-}
-
 function isCommantrolOnly(event) {
 	if (!isCommantrol(event))
 		return false
 
 	return isMac
-		? event.keyCode === KC.meta
-		: event.keyCode === KC.control
+		? event.keyCode === 91 // Meta
+		: event.keyCode === 17 // Control
 }
