@@ -7,20 +7,30 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/atom-one-light.min.css" integrity="sha512-o5v54Kh5PH0dgnf9ei0L+vMRsbm5fvIvnR/XkrZZjN4mqdaeH7PW66tumBoQVIaKNVrLCZiBEfHzRY4JJSMK/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<title>Web Tricks (Eric Fortis)</title>
 	<style>
+		:root {
+			--accent: dodgerblue;
+			--boxShadowIndex1: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+		}
 		html,
 		body {
 			width: 90%;
 			max-width: 960px;
 			margin: 0 auto;
-			font-family: Avenir, system-ui, sans-serif;
+			font-family: Avenir Next, system-ui, sans-serif;
 			font-size: 16px;
 		}
 		h2 {
 			margin-top: 6rem;
 		}
 		button {
+			color: white;
+			background: var(--accent);
+			border-radius: 6px;
 			padding: 8px;
 			cursor: pointer;
+		}
+		a {
+			color: var(--accent);
 		}
 		button:active {
 			cursor: grabbing;
@@ -28,6 +38,10 @@
 		pre {
 			font-size: .8rem;
 			tab-size: 2;
+		}
+		pre code {
+			border-radius: 14px;
+			box-shadow: var(--boxShadowIndex1);
 		}
 
 		footer {
@@ -61,7 +75,7 @@
 
 
 <h2>Play Note</h2>
-<button onclick="playNote()" type="button">Play Note</button>
+<button onclick="playNote()" type="button" class="ripple">Play Note</button>
 <pre><code id="play-note.js" class="language-javascript"></code></pre>
 
 
