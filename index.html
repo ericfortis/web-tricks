@@ -106,11 +106,9 @@
 
 
 <script>
-	inject('feature-detection.js')
-	
-	function inject(filename) {
-		readFromGithub(document.getElementById(filename), filename)
-	}
+	document.querySelectorAll('pre').forEach(pre => {
+		readFromGithub(pre, pre.id)
+	})
 	
 	function readFromGithub(targetEl, file) {
 		fetch(`https://raw.githubusercontent.com/ericfortis/web-tricks/main/${file}`)
