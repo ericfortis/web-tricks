@@ -61,31 +61,30 @@
 </p>
 
 
-
 <h2>CSS-only Material UI input bar animation</h2>
 <label>
 	<input class="muiInput" placeholder="Click me">
 </label>
-<pre><code class="language-css" id="mui-input.css"></code></pre>
+<pre><code id="mui-input.css"></code></pre>
 
 
 <h2>CSS-only Material UI ripple</h2>
 <button autofocus class="ripple" type="button">Focus</button>
-<pre><code class="language-css" id="mui-ripple.css"></code></pre>
+<pre><code id="mui-ripple.css"></code></pre>
 
 
 <h2>Play Note</h2>
 <button class="ripple" onclick="playNote()" type="button">Play Note</button>
-<pre><code class="language-javascript" id="play-note.js"></code></pre>
+<pre><code id="play-note.js"></code></pre>
 
 
 <h2>Email Obfuscator</h2>
 <a id="emailField">Contact</a>
-<pre><code class="language-javascript" id="email-obfuscator.js"></code></pre>
+<pre><code id="email-obfuscator.js"></code></pre>
 
 
 <h2>Auto-inject rel="noopener" to anchors</h2>
-<pre><code class="language-javascript" id="rel-noopener.js"></code></pre>
+<pre><code id="rel-noopener.js"></code></pre>
 
 
 <h2>Preventing widow words</h2>
@@ -93,7 +92,7 @@
 
 
 <h2>Feature Detection</h2>
-<pre><code class="language-javascript" id="feature-detection.js"></code></pre>
+<pre><code id="feature-detection.js"></code></pre>
 
 
 <h2>More…</h2>
@@ -110,10 +109,17 @@
 
 <script>
 	window.addEventListener('load', function () {
-		document.querySelectorAll('code').forEach(elem => {
-			if (elem.id)
-				readFromGithub(elem, elem.id)
-		})
+		for (const elem of document.querySelectorAll('code')) {
+			if (!elem.id)
+				continue
+
+			if (elem.id.endsWith('.js'))
+				elem.className = 'language-javascript'
+			else if (elem.id.endsWith('.css'))
+				elem.className = 'language-css'
+
+			readFromGithub(elem, elem.id)
+		}
 
 		function readFromGithub(targetEl, file) {
 			fetch(`https://raw.githubusercontent.com/ericfortis/web-tricks/main/${file}`)
