@@ -1,16 +1,10 @@
-:root {
-	--accent: #0af;
-}
-
-
 .muiInput {
 	border: 0;
-	outline: 0;
-	padding: 3px 0;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+	outline: 0;
 	background-size: 0 1px;
-	background-color: #fff;
-	background-image: linear-gradient(var(--accent) 0%, var(--accent) 100%);
+	background-color: transparent;
+	background-image: linear-gradient(dodgerblue 0%, dodgerblue 100%);
 	background-repeat: no-repeat;
 	background-position: bottom -1px center;
 	transition: background-size 260ms ease-in-out;
