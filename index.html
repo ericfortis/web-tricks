@@ -125,7 +125,7 @@
 			fetch(`https://raw.githubusercontent.com/ericfortis/web-tricks/main/${file}`)
 				.then(res => res.text())
 				.then(text => {
-					targetEl.textContent = text;
+					targetEl.textContent = text
 					hljs.highlightElement(targetEl)
 				})
 				.catch(console.error)
