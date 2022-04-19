@@ -4,12 +4,13 @@
 	<meta charset="UTF-8">
 	<meta content="width=device-width" name="viewport">
 	<link rel="icon" href="favicon.svg" type="image/svg+xml">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css" integrity="sha512-hasIneQUHlh06VNBe7f6ZcHmeRTLIaQWFd43YriJ0UND19bvYRauxthDg8E4eVNPm9bRUhr5JGeqH7FRFXQu5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<title>Web Tricks (Eric Fortis)</title>
 	<style>
 		html,
 		body {
-			width: 80%;
-			max-width: 700px;
+			width: 90%;
+			max-width: 960px;
 			margin: 0 auto;
 			font-family: Avenir, system-ui, sans-serif;
 			font-size: 16px;
@@ -59,26 +60,26 @@
 <label>
 	<input class="muiInput" placeholder="Click me">
 </label>
-<pre id="mui-input.css"></pre>
+<pre><code id="mui-input.css" class="language-css"></code></pre>
 
 
 <h2>CSS-only Material UI ripple</h2>
 <button autofocus class="ripple" type="button">Focus</button>
-<pre id="mui-ripple.css"></pre>
+<pre><code id="mui-ripple.css" class="language-css"></code></pre>
 
 
 <h2>Play Note</h2>
 <button onclick="playNote()" type="button">Play Note</button>
-<pre id="play-note.js"></pre>
+<pre><code id="play-note.js" class="language-javascript"></code></pre>
 
 
 <h2>Email Obfuscator</h2>
 <a id="emailField">Contact</a>
-<pre id="email-obfuscator.js"></pre>
+<pre><code id="email-obfuscator.js" class="language-javascript"></code></pre>
 
 
 <h2>Auto-inject rel="noopener" to anchors</h2>
-<pre id="rel-noopener.js"></pre>
+<pre><code id="rel-noopener.js" class="language-javascript"></code></pre>
 
 
 <h2>Preventing widow words</h2>
@@ -95,7 +96,7 @@
 
 
 <h2>Feature Detection</h2>
-<pre id="feature-detection.js"></pre>
+<pre><code id="feature-detection.js" class="language-javascript"></code></pre>
 
 
 <footer>
@@ -106,19 +107,28 @@
 
 
 <script>
-	document.querySelectorAll('pre').forEach(pre => {
-		readFromGithub(pre, pre.id)
+	window.addEventListener('load', function () {
+		hljs.configure({ languages: ['javascript', 'css'] })
+
+		document.querySelectorAll('code').forEach(elem => {
+			if (elem.id)
+				readFromGithub(elem, elem.id)
+		})
+
+		function readFromGithub(targetEl, file) {
+			fetch(`https://raw.githubusercontent.com/ericfortis/web-tricks/main/${file}`)
+				.then(res => res.text())
+				.then(text => {
+					targetEl.textContent = text;
+					hljs.highlightElement(targetEl)
+				})
+				.catch(console.error)
+		}
 	})
-	
-	function readFromGithub(targetEl, file) {
-		fetch(`https://raw.githubusercontent.com/ericfortis/web-tricks/main/${file}`)
-			.then(res => res.text())
-			.then(text => targetEl.innerText = text)
-			.catch(console.error)
-	}
 </script>
 <script src="play-note.js"></script>
 <script src="email-obfuscator.js"></script>
 <script src="draw-interactive-connection.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js" integrity="sha512-yUUc0qWm2rhM7X0EFe82LNnv2moqArj5nro/w1bi05A09hRVeIZbN6jlMoyu0+4I/Bu4Ck/85JQIU82T82M28w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
