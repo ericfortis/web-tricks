@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta content="width=device-width" name="viewport">
-	<link rel="icon" href="favicon.svg" type="image/svg+xml">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/atom-one-light.min.css" integrity="sha512-o5v54Kh5PH0dgnf9ei0L+vMRsbm5fvIvnR/XkrZZjN4mqdaeH7PW66tumBoQVIaKNVrLCZiBEfHzRY4JJSMK/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="favicon.svg" rel="icon" type="image/svg+xml">
+	<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/atom-one-light.min.css" integrity="sha512-o5v54Kh5PH0dgnf9ei0L+vMRsbm5fvIvnR/XkrZZjN4mqdaeH7PW66tumBoQVIaKNVrLCZiBEfHzRY4JJSMK/Q==" referrerpolicy="no-referrer" rel="stylesheet" />
 	<title>Web Tricks (Eric Fortis)</title>
 	<style>
 		:root {
@@ -23,10 +23,10 @@
 			margin-top: 6rem;
 		}
 		button {
+			padding: 8px;
 			color: white;
 			background: var(--accent);
 			border-radius: 6px;
-			padding: 8px;
 			cursor: pointer;
 		}
 		a {
@@ -66,26 +66,26 @@
 <label>
 	<input class="muiInput" placeholder="Click me">
 </label>
-<pre><code id="mui-input.css" class="language-css"></code></pre>
+<pre><code class="language-css" id="mui-input.css"></code></pre>
 
 
 <h2>CSS-only Material UI ripple</h2>
 <button autofocus class="ripple" type="button">Focus</button>
-<pre><code id="mui-ripple.css" class="language-css"></code></pre>
+<pre><code class="language-css" id="mui-ripple.css"></code></pre>
 
 
 <h2>Play Note</h2>
-<button onclick="playNote()" type="button" class="ripple">Play Note</button>
-<pre><code id="play-note.js" class="language-javascript"></code></pre>
+<button class="ripple" onclick="playNote()" type="button">Play Note</button>
+<pre><code class="language-javascript" id="play-note.js"></code></pre>
 
 
 <h2>Email Obfuscator</h2>
 <a id="emailField">Contact</a>
-<pre><code id="email-obfuscator.js" class="language-javascript"></code></pre>
+<pre><code class="language-javascript" id="email-obfuscator.js"></code></pre>
 
 
 <h2>Auto-inject rel="noopener" to anchors</h2>
-<pre><code id="rel-noopener.js" class="language-javascript"></code></pre>
+<pre><code class="language-javascript" id="rel-noopener.js"></code></pre>
 
 
 <h2>Preventing widow words</h2>
@@ -93,7 +93,7 @@
 
 
 <h2>Feature Detection</h2>
-<pre><code id="feature-detection.js" class="language-javascript"></code></pre>
+<pre><code class="language-javascript" id="feature-detection.js"></code></pre>
 
 
 <h2>More…</h2>
@@ -128,6 +128,6 @@
 </script>
 <script src="play-note.js"></script>
 <script src="email-obfuscator.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js" integrity="sha512-yUUc0qWm2rhM7X0EFe82LNnv2moqArj5nro/w1bi05A09hRVeIZbN6jlMoyu0+4I/Bu4Ck/85JQIU82T82M28w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script crossorigin="anonymous" integrity="sha512-yUUc0qWm2rhM7X0EFe82LNnv2moqArj5nro/w1bi05A09hRVeIZbN6jlMoyu0+4I/Bu4Ck/85JQIU82T82M28w==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
 </body>
 </html>
