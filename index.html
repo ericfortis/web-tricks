@@ -88,6 +88,7 @@
 
 
 <h2>Feature Detection</h2>
+<pre id="feature-detection.js"></pre>
 
 <h3>isCommantrol</h3>
 <p><kbd>Command</kbd> on macOS, <kbd>Control</kbd> otherwise.</p>
@@ -101,6 +102,21 @@
 	<a href="https://twitter.com/efortis">@efortis</a>
 </footer>
 
+
+<script>
+	inject('feature-detection.js')
+	
+	function inject(filename) {
+		readFromGithub(document.getElementById(filename), filename)
+	}
+	
+	function readFromGithub(targetEl, file) {
+		fetch(`https://raw.githubusercontent.com/ericfortis/web-tricks/main/${file}`)
+			.then(res => res.text())
+			.then(text => targetEl.innerText = text)
+			.catch(console.error)
+	}
+</script>
 <script src="feature-detection.js"></script>
 <script src="play-note.js"></script>
 <script src="email-obfuscator.js"></script>
