@@ -24,6 +24,10 @@
 		button:active {
 			cursor: grabbing;
 		}
+		pre {
+			font-size: .85rem;
+			tab-size: 2;
+		}
 
 		#InteractiveConnectionTarget {
 			width: 90%;
@@ -50,28 +54,31 @@
 
 <h1>Web Tricks</h1>
 
-<h2>CSS-only Material UI ripple</h2>
-<button autofocus class="ripple" type="button">Focus</button>
-
 
 <h2>CSS-only Material UI input bar animation</h2>
 <label>
 	<input class="muiInput" placeholder="Click me">
 </label>
+<pre id="mui-input.css"></pre>
+
+
+<h2>CSS-only Material UI ripple</h2>
+<button autofocus class="ripple" type="button">Focus</button>
+<pre id="mui-ripple.css"></pre>
 
 
 <h2>Play Note</h2>
 <button onclick="playNote()" type="button">Play Note</button>
+<pre id="play-note.js"></pre>
 
 
 <h2>Email Obfuscator</h2>
 <a id="emailField">Contact</a>
+<pre id="email-obfuscator.js"></pre>
 
 
 <h2>Auto-inject rel="noopener" to anchors</h2>
-<p>
-	<a href="https://uidrafter.com">Inspect me</a> and compare it with View Source.
-</p>
+<pre id="rel-noopener.js"></pre>
 
 
 <h2>Preventing widow words</h2>
@@ -89,11 +96,6 @@
 
 <h2>Feature Detection</h2>
 <pre id="feature-detection.js"></pre>
-
-<h3>isCommantrol</h3>
-<p><kbd>Command</kbd> on macOS, <kbd>Control</kbd> otherwise.</p>
-
-<h3>isMac, isSafari, touchSupported</h3>
 
 
 <footer>
@@ -117,10 +119,8 @@
 			.catch(console.error)
 	}
 </script>
-<script src="feature-detection.js"></script>
 <script src="play-note.js"></script>
 <script src="email-obfuscator.js"></script>
-<script src="rel-noopener.js"></script>
 <script src="draw-interactive-connection.js"></script>
 </body>
 </html>
