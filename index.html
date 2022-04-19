@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta content="width=device-width" name="viewport">
 	<link rel="icon" href="favicon.svg" type="image/svg+xml">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css" integrity="sha512-hasIneQUHlh06VNBe7f6ZcHmeRTLIaQWFd43YriJ0UND19bvYRauxthDg8E4eVNPm9bRUhr5JGeqH7FRFXQu5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/atom-one-light.min.css" integrity="sha512-o5v54Kh5PH0dgnf9ei0L+vMRsbm5fvIvnR/XkrZZjN4mqdaeH7PW66tumBoQVIaKNVrLCZiBEfHzRY4JJSMK/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<title>Web Tricks (Eric Fortis)</title>
 	<style>
 		html,
@@ -26,7 +26,7 @@
 			cursor: grabbing;
 		}
 		pre {
-			font-size: .85rem;
+			font-size: .8rem;
 			tab-size: 2;
 		}
 
@@ -96,8 +96,6 @@
 
 <script>
 	window.addEventListener('load', function () {
-		hljs.configure({ languages: ['javascript', 'css'] })
-
 		document.querySelectorAll('code').forEach(elem => {
 			if (elem.id)
 				readFromGithub(elem, elem.id)
