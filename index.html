@@ -48,6 +48,12 @@
 			margin-top: 9rem;
 			color: #999;
 		}
+		.hljs-selector-class {
+			color: #a626a4
+		}
+		.hljs-attribute {
+			color: #4078f2
+		}
 	</style>
 	<link href="./mui-ripple.css" rel="stylesheet">
 	<link href="./mui-input.css" rel="stylesheet">
@@ -116,7 +122,7 @@
 					code.className = 'language-javascript'
 				else if (filename.endsWith('.css'))
 					code.className = 'language-css'
-				
+
 				elem.append(code)
 				readFromGithub(code, filename)
 			}
