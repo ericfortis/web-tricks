@@ -7,7 +7,7 @@ setTimeout(function setEmailAddress() {
 		't', 'c', 'a', 't', 'n', 'o', 'c'
 	].reverse().join('')
 
-	var linkEl = document.getElementById('emailField')
+	var linkEl = document.getElementById('EmailLink')
 	if (linkEl) {
 		linkEl.href = 'mailto:' + email
 		linkEl.innerText = email
