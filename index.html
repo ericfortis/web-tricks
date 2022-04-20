@@ -65,26 +65,26 @@
 <label>
 	<input class="muiInput" placeholder="Click me">
 </label>
-<pre><code id="mui-input.css"></code></pre>
+<pre id="mui-input.css"></pre>
 
 
 <h2>CSS-only Material UI ripple</h2>
 <button autofocus class="ripple" type="button">Focus</button>
-<pre><code id="mui-ripple.css"></code></pre>
+<pre id="mui-ripple.css"></pre>
 
 
 <h2>Play Note</h2>
 <button class="ripple" onclick="playNote()" type="button">Play Note</button>
-<pre><code id="play-note.js"></code></pre>
+<pre id="play-note.js"></pre>
 
 
 <h2>Email Obfuscator</h2>
 <a id="emailField">Contact</a>
-<pre><code id="email-obfuscator.js"></code></pre>
+<pre id="email-obfuscator.js"></pre>
 
 
 <h2>Auto-inject rel="noopener" to anchors</h2>
-<pre><code id="rel-noopener.js"></code></pre>
+<pre id="rel-noopener.js"></pre>
 
 
 <h2>Preventing widow words</h2>
@@ -92,7 +92,7 @@
 
 
 <h2>Feature Detection</h2>
-<pre><code id="feature-detection.js"></code></pre>
+<pre id="feature-detection.js"></pre>
 
 
 <h2>More…</h2>
@@ -109,15 +109,17 @@
 
 <script>
 	window.addEventListener('load', function () {
-		for (const elem of document.querySelectorAll('code')) {
+		for (const elem of document.querySelectorAll('pre')) {
 			const filename = elem.id
 			if (filename) {
+				const code = document.createElement('code')
 				if (filename.endsWith('.js'))
-					elem.className = 'language-javascript'
+					code.className = 'language-javascript'
 				else if (filename.endsWith('.css'))
-					elem.className = 'language-css'
-
-				readFromGithub(elem, filename)
+					code.className = 'language-css'
+				
+				elem.append(code)
+				readFromGithub(code, filename)
 			}
 		}
 
