@@ -56,6 +56,15 @@
 		.hljs-attribute {
 			color: #4078f2
 		}
+		.hljs-return {
+			padding-right: 4px;
+			padding-bottom: 2px;
+			padding-left: 8px;
+			background: #8b056f;
+			border-bottom-left-radius: 10px;
+			border-top-left-radius: 10px;
+			color: white;
+		}
 	</style>
 </head>
 <body>
@@ -134,6 +143,9 @@
 				.then(text => {
 					targetEl.textContent = text
 					hljs.highlightElement(targetEl)
+					for (const span of targetEl.querySelectorAll('.hljs-keyword'))
+						if (span.innerText === 'return' || span.innerText === 'throw')
+							span.classList.add('hljs-return')
 				})
 				.catch(console.error)
 		}
