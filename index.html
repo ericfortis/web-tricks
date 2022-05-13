@@ -93,7 +93,8 @@
 <ul>
 	<li><a href="//blog.uidrafter.com/types-without-typescript">Types without TypeScript</a></li>
 	<li><a href="//blog.uidrafter.com/getting-rid-of-npm-scripts">(Security) Getting rid of NPM scripts</a></li>
-	<li><a href="//blog.uidrafter.com/conditional-avif-for-video-posters">(AVIF, JXL) Serve the optimal image format</a></li>
+	<li><a href="//blog.uidrafter.com/conditional-avif-for-video-posters">(AVIF, JXL) Serve the optimal image format</a>
+	</li>
 	<li><a href="//blog.uidrafter.com/architecture-of-a-desktop-alike-spa">UI Drafter Architecture</a></li>
 	<li><a href="//blog.uidrafter.com/how-to-fix-html-widow-words">How to prevent widow words?</a></li>
 	<li><a href="//blog.uidrafter.com/bitwise-table-lookup">Bitwise Table Lookup (JS multiplexer)</a></li>
@@ -168,8 +169,8 @@
 		}
 
 		function readFromGithub(targetEl, file) {
-			fetch(`./${file}`)
-				// fetch(`https://raw.githubusercontent.com/ericfortis/web-tricks/main/${file}`)
+			// fetch(`./${file}`)
+			fetch(`https://raw.githubusercontent.com/ericfortis/web-tricks/main/${file}`)
 				.then(res => res.text())
 				.then(text => {
 					targetEl.textContent = text
