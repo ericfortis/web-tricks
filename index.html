@@ -7,6 +7,7 @@
 	<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/atom-one-light.min.css" integrity="sha512-o5v54Kh5PH0dgnf9ei0L+vMRsbm5fvIvnR/XkrZZjN4mqdaeH7PW66tumBoQVIaKNVrLCZiBEfHzRY4JJSMK/Q==" referrerpolicy="no-referrer" rel="stylesheet" />
 	<link href="./mui-ripple.css" rel="stylesheet">
 	<link href="./mui-input.css" rel="stylesheet">
+	<link href="./pulse-on-change.css" rel="stylesheet">
 	<title>Web Tricks (Eric Fortis)</title>
 	<style>
 		:root {
@@ -37,6 +38,11 @@
 		button:active {
 			cursor: grabbing;
 		}
+
+		output {
+			padding: 0 6px;
+		}
+
 		pre {
 			font-size: .8rem;
 			tab-size: 2;
@@ -74,6 +80,14 @@
 <p>
 	Tips and tricks for web front-end development.
 </p>
+
+
+<h2>Pulse on change</h2>
+<input size="3" type="text" id="numA" value="1" />&nbsp;+
+<input size="3" type="text" id="numB" value="2" />&nbsp;&nbsp;&nbsp;=
+<output for="numA numB" id="outputAB">3</output>
+<pre id="pulse-on-change.css"></pre>
+<pre id="pulse-on-change.js"></pre>
 
 
 <h2>CSS-only Material UI input bar animation</h2>
@@ -137,6 +151,7 @@
 		}
 
 		function readFromGithub(targetEl, file) {
+			// fetch(`./${file}`)
 			fetch(`https://raw.githubusercontent.com/ericfortis/web-tricks/main/${file}`)
 				.then(res => res.text())
 				.then(text => {
@@ -152,6 +167,7 @@
 </script>
 <script src="play-note.js"></script>
 <script src="email-obfuscator.js"></script>
+<script src="pulse-on-change.js"></script>
 <script crossorigin="anonymous" integrity="sha512-yUUc0qWm2rhM7X0EFe82LNnv2moqArj5nro/w1bi05A09hRVeIZbN6jlMoyu0+4I/Bu4Ck/85JQIU82T82M28w==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
 </body>
 </html>
