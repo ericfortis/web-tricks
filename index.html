@@ -21,6 +21,7 @@
 			margin: 0 auto;
 			font-family: Avenir Next, system-ui, sans-serif;
 			font-size: 16px;
+			scroll-behavior: smooth;
 		}
 		ul li {
 			line-height: 2;
@@ -28,19 +29,28 @@
 		h2 {
 			margin-top: 6rem;
 		}
-		button {
-			padding: 8px;
-			color: white;
-			background: var(--accent);
-			border-radius: 6px;
-			cursor: pointer;
-		}
+
 		a {
 			color: var(--accent);
 			text-decoration: none;
 		}
 		a:hover {
 			text-decoration: underline;
+		}
+		a[href^="#"]::after {
+			display: inline-block;
+			margin-left: 3px;
+			color: #af85bb;
+			content: '↴';
+			transform: scale(.8) translateY(2px);
+		}
+
+		button {
+			padding: 8px;
+			color: white;
+			background: var(--accent);
+			border-radius: 6px;
+			cursor: pointer;
 		}
 		button:active {
 			cursor: grabbing;
@@ -88,8 +98,10 @@
 	Tips and tricks for web front-end development.
 </p>
 
+<ul id="toc"></ul>
 
-<h2>Pulse on change</h2>
+
+<h2 id="-pulse-on-change">Pulse on change</h2>
 <input size="3" type="text" id="numA" value="1" />&nbsp;+
 <input size="3" type="text" id="numB" value="2" />&nbsp;&nbsp;&nbsp;=
 <output for="numA numB" id="outputAB">3</output>
@@ -97,35 +109,35 @@
 <pre id="pulse-on-change.js"></pre>
 
 
-<h2>CSS-only Material UI input bar animation</h2>
+<h2 id="-css-mui-input-animation">CSS-only Material UI Input Animation</h2>
 <input class="muiInput" placeholder="Click me" />
 <pre id="mui-input.css"></pre>
 
 
-<h2>CSS-only Material UI ripple</h2>
+<h2 id="-css-mui-ripple">CSS-only Material UI Ripple</h2>
 <button autofocus class="ripple" type="button">Focus</button>
 <pre id="mui-ripple.css"></pre>
 
 
-<h2>Play Note</h2>
+<h2 id="-play-note">Play Note</h2>
 <button class="ripple" onclick="playNote()" type="button">Play Note</button>
 <pre id="play-note.js"></pre>
 
 
-<h2>Email Obfuscator</h2>
+<h2 id="-email-obfuscator">Email Obfuscator</h2>
 <a id="EmailLink">Contact</a>
 <pre id="email-obfuscator.js"></pre>
 
 
-<h2>Auto-inject rel="noopener" to anchors</h2>
+<h2 id="-rel-noopener">Auto-inject rel="noopener" to anchors</h2>
 <pre id="rel-noopener.js"></pre>
 
 
-<h2>Feature Detection</h2>
+<h2 id="-feature-detection">Feature Detection</h2>
 <pre id="feature-detection.js"></pre>
 
 
-<h2>More…</h2>
+<h2 id="-more">More…</h2>
 <ul>
 	<li>
 		<a href="https://ericfortis.github.io/web-animations/" target="_blank">Web Animations</a>
@@ -134,6 +146,7 @@
 		<a href="https://blog.uidrafter.com" target="_blank">Blog Posts</a>
 	</li>
 </ul>
+
 
 <footer>
 	&copy; 2022 Eric Fortis
@@ -144,6 +157,18 @@
 
 <script>
 	window.addEventListener('load', function () {
+		/* Build Table of Contents */
+		document.querySelectorAll('h2[id^="-"]').forEach(h2 => {
+			const li = document.createElement('li')
+			const a = document.createElement('a')
+			a.href = '#' + h2.id
+			a.innerText = h2.innerText
+			li.append(a)
+			document.getElementById('toc').append(li)
+		})
+
+
+		/* Inject and Style Code Snippets */
 		for (const elem of document.querySelectorAll('pre')) {
 			const filename = elem.id
 			if (filename) {
