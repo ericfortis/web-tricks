@@ -6,7 +6,7 @@
 	[numA, numB].forEach(el => el.addEventListener('change', function () {
 		output.innerText = parseFloat(numA.value) + parseFloat(numB.value)
 
-		// Look Here
+		// 👀 here
 		output.classList.remove('feedbackPulse')
 		
 		// Then wait for the next repaint before adding it back
