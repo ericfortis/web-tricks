@@ -158,14 +158,14 @@
 <script>
 	window.addEventListener('load', function () {
 		/* Build Table of Contents */
-		document.querySelectorAll('h2[id^="-"]').forEach(h2 => {
+		for (const h2 of document.querySelectorAll('h2[id^="-"]')) {
 			const li = document.createElement('li')
 			const a = document.createElement('a')
 			a.href = '#' + h2.id
 			a.innerText = h2.innerText
 			li.append(a)
 			document.getElementById('toc').append(li)
-		})
+		}
 
 
 		/* Inject and Style Code Snippets */
