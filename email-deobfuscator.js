@@ -1,13 +1,13 @@
 setTimeout(function setEmailAddress() {
-	var email = [
+	const email = [
 		'm', 'o', 'c',
 		'.',
 		'l', 'i', 'a', 'm', 'g',
 		String.fromCharCode(64), // @
-		't', 'c', 'a', 't', 'n', 'o', 'c'
+		's', 'i', 't', 'r', 'o', 'f', 'e' 
 	].reverse().join('')
 
-	var linkEl = document.getElementById('EmailLink')
+	const linkEl = document.getElementById('EmailLink')
 	if (linkEl) {
 		linkEl.href = 'mailto:' + email
 		linkEl.innerText = email
