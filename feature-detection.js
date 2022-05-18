@@ -13,9 +13,8 @@ const isSafari = typeof navigator !== 'undefined'
 	&& navigator.vendor === 'Apple Computer, Inc.'
 
 
-export const isIos =
-	typeof navigator !== "undefined" &&
-	(window.navigator.platform === "iPhone" || window.navigator.platform === "iPad")
+export const isIos = typeof navigator !== 'undefined' 
+	&& ['iPhone', 'iPad'].includes(navigator.platform)
 
 
 const touchSupported = typeof document !== 'undefined'
