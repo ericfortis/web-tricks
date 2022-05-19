@@ -179,13 +179,55 @@
 			document.getElementById('toc').append(li)
 		}
 
-		(function flashHighlightWhenScrollingToFragments() {
+
+		/* Inject and Style Code Snippets */
+		const allSnippets = document.querySelectorAll('pre')
+		const nSnippets = allSnippets.length
+		let nLoadedSnippets = 0
+		for (let i = 0; i < nSnippets; i++) {
+			const snippet = allSnippets[i]
+			const filename = snippet.id
+			if (filename) {
+				const code = document.createElement('code')
+				if (filename.endsWith('.js'))
+					code.className = 'language-javascript'
+				else if (filename.endsWith('.css'))
+					code.className = 'language-css'
+
+				snippet.append(code)
+				readFromGithub(code, filename)
+					.then(() => { // Otherwise, the vertical offset wouldn't account for the snippets height
+						if (nSnippets === ++nLoadedSnippets)
+							flashHighlightWhenScrollingToFragments()
+					})
+			}
+		}
+
+		function readFromGithub(targetEl, file) {
+			// return fetch(`./${file}`)
+			return fetch(`https://raw.githubusercontent.com/ericfortis/web-tricks/main/${file}`)
+				.then(res => res.text())
+				.then(text => {
+					targetEl.textContent = text
+					hljs.highlightElement(targetEl)
+					for (const span of targetEl.querySelectorAll('.hljs-keyword'))
+						if (span.innerText === 'return' || span.innerText === 'throw')
+							span.classList.add('hljs-return')
+				})
+				.catch(console.error)
+		}
+
+
+		function flashHighlightWhenScrollingToFragments() {
 			const FLASH_BG_COLOR = '#77ffc4'
 			let elPendingHighlightOff = null
 			let highlightTimer = null
 
-			if (location.hash)
+			if (location.hash) {
+				const snippet = document.querySelector(location.hash)
+				window.scrollTo(0, snippet.offsetTop)
 				highlightSectionTitle(location.hash)
+			}
 
 			for (const anchor of document.querySelectorAll('a'))
 				if (anchor.hash)
@@ -209,36 +251,6 @@
 					setTimeout(function () {})
 				}
 			}
-		}())
-
-
-		/* Inject and Style Code Snippets */
-		for (const elem of document.querySelectorAll('pre')) {
-			const filename = elem.id
-			if (filename) {
-				const code = document.createElement('code')
-				if (filename.endsWith('.js'))
-					code.className = 'language-javascript'
-				else if (filename.endsWith('.css'))
-					code.className = 'language-css'
-
-				elem.append(code)
-				readFromGithub(code, filename)
-			}
-		}
-
-		function readFromGithub(targetEl, file) {
-			// fetch(`./${file}`)
-			fetch(`https://raw.githubusercontent.com/ericfortis/web-tricks/main/${file}`)
-				.then(res => res.text())
-				.then(text => {
-					targetEl.textContent = text
-					hljs.highlightElement(targetEl)
-					for (const span of targetEl.querySelectorAll('.hljs-keyword'))
-						if (span.innerText === 'return' || span.innerText === 'throw')
-							span.classList.add('hljs-return')
-				})
-				.catch(console.error)
 		}
 	})
 </script>
