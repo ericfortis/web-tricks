@@ -1,13 +1,13 @@
 function fetchWithRetry(url, options) {
-	var maxRetries = 3
-	var msRetryDelayIncrement = 1500
+	const maxRetries = 3
+	const msRetryDelayIncrement = 1500
 
-	return new Promise(function (resolve, reject) {
+	return new Promise((resolve, reject) => {
 		attemptFetch(1)
 
 		function attemptFetch(nRetry) {
 			fetch(url, options)
-				.then(function (response) {
+				.then(response => {
 					if (nRetry <= maxRetries
 						&& response.status >= 500
 						&& response.status < 600)
@@ -15,7 +15,7 @@ function fetchWithRetry(url, options) {
 					else
 						resolve(response)
 				})
-				.catch(function (error) {
+				.catch(error => {
 					if (nRetry <= maxRetries)
 						retry(nRetry)
 					else
@@ -24,9 +24,10 @@ function fetchWithRetry(url, options) {
 		}
 
 		function retry(nRetry) {
-			setTimeout(function () {
+			setTimeout(() => {
 				attemptFetch(++nRetry)
 			}, msRetryDelayIncrement * nRetry)
 		}
 	})
 }
+
