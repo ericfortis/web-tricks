@@ -1,33 +1,23 @@
 /* @BoltClock stackoverflow.com/a/27905094/529725 */
 
-.HoverDemo {
-	width: 200px;
-	padding: 0;
-}
-.HoverDemo li {
-	display: inline-block;
-	width: 100%;
-	padding: 4px 10px;
-}
-
 /* Hover-out Transition */
 .itemA:hover {
-	background-color: gold;
+	background-color: purple;
 }
 .itemA:not(:hover) {
-	transition: background-color ease-in-out 1s;
+	transition: all ease-in-out 1s;
 }
 
 /* Hover-in Transition */
 .itemB:hover {
-	background-color: gold;
-	transition: background-color ease-in-out 1s;
+	background-color: purple;
+	transition: all ease-in-out 1s;
 }
 
 /* Hover-in-out Transition */
 .itemC {
-	transition: background-color ease-in-out 1s;
+	transition: all ease-in-out 1s;
 }
 .itemC:hover {
-	background-color: gold;
+	background-color: purple;
 }
