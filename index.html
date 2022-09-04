@@ -214,8 +214,8 @@
 		}
 
 		function readFromGithub(targetEl, file) {
-			return fetch(`./${file}`)
-			// return fetch(`https://raw.githubusercontent.com/ericfortis/web-tricks/main/${file}`)
+			// return fetch(`./${file}`)
+			return fetch(`https://raw.githubusercontent.com/ericfortis/web-tricks/main/${file}`)
 				.then(res => res.text())
 				.then(text => {
 					targetEl.textContent = text
