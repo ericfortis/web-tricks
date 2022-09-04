@@ -7,7 +7,7 @@
 	<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/atom-one-light.min.css" integrity="sha512-o5v54Kh5PH0dgnf9ei0L+vMRsbm5fvIvnR/XkrZZjN4mqdaeH7PW66tumBoQVIaKNVrLCZiBEfHzRY4JJSMK/Q==" referrerpolicy="no-referrer" rel="stylesheet" />
 	<link href="./mui-ripple.css" rel="stylesheet">
 	<link href="./mui-input.css" rel="stylesheet">
-	<link href="./pulse-on-change.css" rel="stylesheet">
+	<link href="hover.css" rel="stylesheet">
 	<title>Web Frontend Tricks by Eric Fortis</title>
 	<style>
 		:root {
@@ -122,6 +122,13 @@
 <button autofocus class="ripple" type="button">Focus</button>
 <pre id="mui-ripple.css"></pre>
 
+<h2 id="-css-hover-out">CSS-only Hover (Out, In, In-Out) Transitions</h2>
+<ul class="HoverDemo">
+	<li class="itemA">Item A (Hover Out)</li>
+	<li class="itemB">Item B (Hover In)</li>
+	<li class="itemC">Item C (Hover In Out)</li>
+</ul>
+<pre id="hover.css"></pre>
 
 <h2 id="-play-note">Play Note</h2>
 <button class="ripple" onclick="playNote()" type="button">Play Note</button>
@@ -207,8 +214,8 @@
 		}
 
 		function readFromGithub(targetEl, file) {
-			// return fetch(`./${file}`)
-			return fetch(`https://raw.githubusercontent.com/ericfortis/web-tricks/main/${file}`)
+			return fetch(`./${file}`)
+			// return fetch(`https://raw.githubusercontent.com/ericfortis/web-tricks/main/${file}`)
 				.then(res => res.text())
 				.then(text => {
 					targetEl.textContent = text
